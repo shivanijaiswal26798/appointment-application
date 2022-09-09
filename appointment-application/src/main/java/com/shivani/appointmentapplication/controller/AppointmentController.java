@@ -14,13 +14,21 @@ import org.springframework.web.bind.annotation.RestController;
 import com.shivani.appointmentapplication.Entity.Appointment;
 import com.shivani.appointmentapplication.services.AppointmentService;
 
+/**
+ * @author Shivani
+ *
+ */
 @RestController
-//@RequestMapping("/")
+@RequestMapping("/appointment")
 public class AppointmentController {
 
 	@Autowired
 	private AppointmentService appointmentService;
 	
+	/**
+	 * @param appointment
+	 * @return Appointment
+	 */
 	@PostMapping("/")
 	public Appointment saveAppointment(@RequestBody Appointment appointment) {
 		
@@ -28,11 +36,20 @@ public class AppointmentController {
 		return appointmentService.save(appointment);
 	}
 	
+	/**
+	 * @param id
+	 * @return Appointment
+	 */
 	@GetMapping("/{id}")
 	public Appointment getAppointmentById(@PathVariable int id) {
 		return appointmentService.getAppointmentById(id);
 	}
 	
+	/**
+	 * @param startDate
+	 * @param endDate
+	 * @return List<Appointment>
+	 */
 	@GetMapping("/data")
 	public List<Appointment> getAppointmentByDate(@RequestParam String startDate, @RequestParam String endDate) {
 		System.out.println(startDate +" "+endDate);

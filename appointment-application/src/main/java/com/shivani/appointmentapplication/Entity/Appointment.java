@@ -16,6 +16,10 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+/**
+ * @author Shivani
+ *
+ */
 @Table(name="appointment")
 @Entity
 @Data
